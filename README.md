@@ -1,6 +1,6 @@
 # 🤖 ML Zoomcamp - Personal Learning Repository
 
-> My personal journey through the **[Machine Learning Zoomcamp](https://github.com/DataTalksClub/machine-learning-zoomcamp)** by [DataTalks.Club](https://datatalks.club/) - a free, 4-month program covering the full ML engineering pipeline, from core algorithms to production deployment.
+> My personal journey through the **[Machine Learning Zoomcamp](https://github.com/DataTalksClub/machine-learning-zoomcamp)** by [DataTalks.Club](https://datatalks.club/) - a 4-month program covering the full ML engineering pipeline, from core algorithms to production deployment.
 
 ---
 
