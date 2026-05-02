@@ -1,3 +1,11 @@
+## 👤 About Me
+
+I'm working through this curriculum to build a solid foundation in ML engineering, bridging the gap between data science theory and production-ready applications. This repository is both my study log and my portfolio.
+
+Feel free to explore the notebooks, open issues, or reach out!
+
+---
+
 # 🤖 ML Zoomcamp — Personal Learning Repository
 
 > My personal journey through the **[Machine Learning Zoomcamp](https://github.com/DataTalksClub/machine-learning-zoomcamp)** by [DataTalks.Club](https://datatalks.club/) — a free, 4-month program covering the full ML engineering pipeline, from core algorithms to production deployment.
@@ -165,12 +173,3 @@ Two final projects showcasing the complete ML engineering pipeline — from raw 
 - 📺 [Course YouTube Playlist](https://www.youtube.com/playlist?list=PL3MmuxUbc_hIhxl5Ji8t4O6lPAOpHaCLR)
 - 📁 [Official Course Repository](https://github.com/DataTalksClub/machine-learning-zoomcamp)
 - 🌐 [DataTalks.Club](https://datatalks.club/)
-- 💬 [Slack Community (#course-ml-zoomcamp)](https://datatalks.club/slack.html)
-
----
-
-## 👤 About Me
-
-I'm working through this curriculum to build a solid foundation in ML engineering, bridging the gap between data science theory and production-ready applications. This repository is both my study log and my portfolio.
-
-Feel free to explore the notebooks, open issues, or reach out!
