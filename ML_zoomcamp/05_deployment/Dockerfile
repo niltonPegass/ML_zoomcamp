@@ -1,4 +1,4 @@
-FROM python:3.14.4
+FROM python:3.12-slim
 
 RUN pip install pipenv
 
@@ -10,6 +10,6 @@ RUN pipenv install --system --deploy
 COPY ["predict.py", "./"]
 COPY ["model/model_C=1.0.bin", "./model/"]
 
-EXPOSE 2909
+EXPOSE 8080
 
-ENTRYPOINT ["gunicorn", "--bind=0.0.0.0:2909", "predict:app"]
+ENTRYPOINT ["gunicorn", "--bind=0.0.0.0:8080", "predict:app"]
