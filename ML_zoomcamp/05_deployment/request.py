@@ -3,7 +3,6 @@ import requests
 #url = 'http://localhost:8080/predict'
 #url_render = 'https://churn-prediction-zoomcamp.onrender.com/predict'
 host_aws = 'churn-predict-env.eba-ykukcufr.sa-east-1.elasticbeanstalk.com'
-host_aws = 'churn-predict-env.eba-ykukcufr.sa-east-1.elasticbeanstalk.com'
 url_aws = f'http://{host_aws}/predict'
 customer_id = 'xyz-123'
 
