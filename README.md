@@ -1,10 +1,10 @@
-# 🤖 ML Zoomcamp - Personal Learning Repository
+# ML ZOOMCAMP - PERSONAL LEARNING REPOSITORY
 
 > My personal journey through the **[Machine Learning Zoomcamp](https://github.com/DataTalksClub/machine-learning-zoomcamp)** by [DataTalks.Club](https://datatalks.club/) - a 4-month program covering the full ML engineering pipeline, from core algorithms to production deployment.
 
 ---
 
-### 👤 About Me
+### ABOUT ME
 
 I'm working through this curriculum to build a solid foundation in ML engineering, bridging the gap between data science theory and production-ready applications. This repository is both my study log and my portfolio.
 
@@ -12,7 +12,7 @@ Feel free to explore the notebooks, open issues, or reach out!
 
 ---
 
-### 📌 About This Repository
+### ABOUT THIS REPOSITORY
 
 This repository documents everything I build, study, and experiment with as I progress through the ML Zoomcamp curriculum. It includes notebooks, homework solutions, projects, and personal notes organized by module.
 
@@ -20,7 +20,7 @@ The course is taught by **Alexey Grigorev** and the DataTalks.Club team, and cov
 
 ---
 
-### 🎯 What the Course Proposes
+### WHAT THE COURSE PROPOSES
 
 The ML Zoomcamp focuses on **ML Engineering** - the practical side of machine learning that bridges the gap between a trained model and a real, deployed application. The course teaches you to:
 
@@ -33,7 +33,7 @@ All materials are open-source and available on YouTube. Cohort students also sub
 
 ---
 
-### 🗂️ Repository Structure
+### REPOSITORY STRUCTURE
 
 ```
 .
@@ -52,7 +52,7 @@ All materials are open-source and available on YouTube. Cohort students also sub
 
 ---
 
-### 📚 Curriculum Overview
+### CURRICULUM OVERVIEW
 
 #### Module 1 - Introduction to Machine Learning
 Fundamentals of what ML is, when to use it, and how to frame problems using the **CRISP-DM** methodology (Cross-Industry Standard Process for Data Mining).
@@ -96,7 +96,7 @@ Exploring more powerful, non-linear algorithms and ensemble methods.
 
 ---
 
-#### ⚡ Midterm Project
+#### MIDTERM PROJECT
 An independent end-to-end ML project applying everything from Modules 1–6: data collection, EDA, model training, evaluation, and deployment as a web service.
 
 ---
@@ -127,7 +127,7 @@ Two final projects showcasing the complete ML engineering pipeline - from raw da
 
 ---
 
-### 🛠️ Tools & Technologies
+### TOOLS & TECHNOLOGIES
 
 | Category | Tools |
 |---|---|
@@ -144,7 +144,7 @@ Two final projects showcasing the complete ML engineering pipeline - from raw da
 
 ---
 
-### 🧠 Skills Developed
+### SKILLS DEVELOPED
 
 - Formulating real-world problems as ML tasks using CRISP-DM
 - Building and validating regression and classification models
@@ -158,7 +158,7 @@ Two final projects showcasing the complete ML engineering pipeline - from raw da
 
 ---
 
-### 📂 Projects
+### PROJECTS
 
 | Project | Description | Status |
 |---|---|---|
@@ -168,7 +168,7 @@ Two final projects showcasing the complete ML engineering pipeline - from raw da
 
 ---
 
-### 🔗 Resources
+### RESOURCES
 
 - 📺 [Course YouTube Playlist](https://www.youtube.com/playlist?list=PL3MmuxUbc_hIhxl5Ji8t4O6lPAOpHaCLR)
 - 📁 [Official Course Repository](https://github.com/DataTalksClub/machine-learning-zoomcamp)
