@@ -158,16 +158,6 @@ Two final projects showcasing the complete ML engineering pipeline - from raw da
 
 ---
 
-### PROJECTS
-
-| Project | Description | Status |
-|---|---|---|
-| Midterm Project | End-to-end ML solution deployed as a web service | 🔄 In progress |
-| Capstone Project 1 | TBD | ⏳ Upcoming |
-| Capstone Project 2 | TBD | ⏳ Upcoming |
-
----
-
 ### RESOURCES
 
 - 📺 [Course YouTube Playlist](https://www.youtube.com/playlist?list=PL3MmuxUbc_hIhxl5Ji8t4O6lPAOpHaCLR)
