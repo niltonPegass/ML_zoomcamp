@@ -1,6 +1,6 @@
 ## Credit Risk Scoring
 
-This project builds a credit risk scoring model — the kind a bank would use to decide whether to approve or deny a loan application.
+This project builds a credit risk scoring model - the kind a bank would use to decide whether to approve or deny a loan application.
 
 #### Problem overview
 When a customer applies for a loan, the bank collects information such as income, loan amount requested, and other financial details. Instead of making that decision manually, a machine learning model can process that data and return a risk score: the probability that the customer will default on the loan. We use historical loan data where each record tells us:
