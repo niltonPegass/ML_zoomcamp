@@ -1,131 +1,107 @@
-# Deep Learning with PyTorch - Image Classification
+# Deep Learning with PyTorch — Clothing Image Classification
 
-This project builds an image classification model using **PyTorch** and **transfer learning**. It is part of the ML Zoomcamp curriculum (Module 08 - Deep Learning), adapted from the original TensorFlow/Keras version to use PyTorch instead.
+This project applies **deep learning** to image classification using **PyTorch** and **transfer learning**. It is part of the ML Zoomcamp curriculum (Module 08 — Deep Learning), adapted from the original TensorFlow/Keras version to use PyTorch.
 
 ---
 
-## Problem Overview
+## Why Deep Learning?
 
-Given a clothing image, the goal is to correctly identify which of **10 clothing categories** it belongs to. This is a **multi-class classification** task where:
+Deep learning is a subfield of machine learning built on neural networks with multiple layers. Unlike previous chapters that dealt with tabular data, here we work directly with **images** — a domain where deep learning particularly excels.
 
-- The input is an image of a clothing item
-- The output is a predicted category label (e.g., *pants*, *dress*, *t-shirt*)
+Instead of structured rows and columns, the input is now a grid of pixels. Deep neural networks learn to extract visual patterns (edges, textures, shapes) automatically across their layers, making them the standard approach for image classification tasks.
 
-Instead of training a model from scratch, we leverage a model pre-trained on ImageNet and fine-tune it for this specific task - a technique known as **transfer learning**.
+---
+
+## Use Case
+
+Imagine a fashion marketplace where a user wants to list a clothing item for sale. They upload a photo, and a **classification service** analyzes the image and suggests the appropriate category automatically — for example, identifying the item as a *t-shirt* or a *dress*.
+
+That service is exactly what we build here: a neural network that receives a clothing image and returns a predicted category label.
+
+---
+
+## Problem Framing
+
+This is a **multi-class classification** task:
+
+| Property | Details |
+|---|---|
+| **Input** | A clothing image |
+| **Output** | One of 10 clothing category labels |
+| **Task type** | Multi-class classification |
 
 ---
 
 ## Dataset
 
-The dataset used is the [clothing-dataset-small](https://github.com/alexeygrigorev/clothing-dataset-small), a subset of a larger clothing image collection.
+We use the [clothing-dataset-small](https://github.com/alexeygrigorev/clothing-dataset-small) — a curated subset of the [full clothing dataset](https://github.com/alexeygrigorev/clothing-dataset) (~5,000 images, 20 classes), keeping only the **10 most popular categories**.
 
 | Property | Details |
 |---|---|
 | **Categories** | dress, hat, longsleeve, outwear, pants, shirt, shoes, shorts, skirt, t-shirt |
-| **Splits** | Train / Validation / Test |
+| **Splits** | Train / Validation / Test (pre-organized, no manual split needed) |
 | **Input size** | Images resized to 224 × 224 pixels |
-| **Organization** | One directory per class label |
 
 ---
 
 ## Methodology
 
-### 1. Pre-trained Model - MobileNetV2
+### Transfer Learning with MobileNetV2
 
-Rather than training from scratch, we start from **MobileNetV2**, pre-trained on ImageNet (1.4M images, 1000 classes). The convolutional layers are **frozen** - we reuse their learned feature representations (edges, textures, shapes) and only train the new classification head added on top.
+Rather than training from scratch, we use **MobileNetV2** — a model pre-trained on ImageNet (1.4M images, 1000 classes). Its convolutional layers are **frozen**, reusing already-learned visual features, while a custom classification head is trained for our 10-class problem.
 
-### 2. Model Architecture
-
-The custom model follows this structure:
+**Model architecture:**
 
 | Stage | Component |
 |---|---|
 | Feature extraction | MobileNetV2 backbone (frozen) |
 | Pooling | Global Average Pooling |
-| Inner layer | Fully connected (Dense) + ReLU |
+| Inner layer | Fully connected + ReLU |
 | Regularization | Dropout |
-| Output | Fully connected → 10 classes (logits) |
+| Output | Fully connected → 10 classes |
 
-### 3. Training
+### Training
 
-PyTorch uses an **explicit training loop** - unlike Keras's `model.fit()`. Each epoch:
-1. Forward pass → compute loss (`CrossEntropyLoss`)
-2. Backward pass → compute gradients
-3. Optimizer step → update weights (`Adam`)
-4. Validation phase → evaluate without gradient updates
+PyTorch requires an **explicit training loop** — forward pass, loss computation (`CrossEntropyLoss`), backward pass, and weight update (`Adam optimizer`) — unlike Keras's `model.fit()`. This gives more control and visibility into what happens during training.
 
-### 4. Hyperparameter Tuning
+### Key Techniques Applied
 
-The following hyperparameters are tuned through experimentation:
-
-| Hyperparameter | Values tested | Best found |
-|---|---|---|
-| Learning rate | 0.0001, 0.001, 0.01, 0.1 | **0.001** |
-| Inner layer size | 10, 100, 1000 | **varies** |
-| Dropout rate | 0.0, 0.2, 0.5, 0.8 | **0.2** |
-
-### 5. Regularization - Dropout
-
-To prevent overfitting, **Dropout** is applied after the inner layer. During training, a fraction of activations is randomly set to zero, forcing the network to learn more robust representations. Dropout is automatically disabled during evaluation/inference.
-
-### 6. Data Augmentation
-
-To artificially expand the training set and improve generalization, random transformations are applied **only to training images**:
-
-- Random rotation (±10°)
-- Random resized crop (zoom effect)
-- Random horizontal flip
-
-Validation and test images are **never augmented** - only resized and normalized.
-
-### 7. Model Checkpointing
-
-During training, the model is saved whenever validation accuracy improves. This ensures the best-performing version is preserved even if later epochs show degradation.
-
-### 8. Export to ONNX
-
-After training, the model is exported to **ONNX** (Open Neural Network Exchange) format for deployment - enabling use with optimized runtimes and in language-agnostic environments (e.g., the serverless module).
-
----
-
-## Key Concepts
-
-| Concept | Description |
+| Technique | Purpose |
 |---|---|
-| Transfer Learning | Reusing a model trained on one task for a different task |
-| CNN | Convolutional neural network - specialized for image data |
-| Dropout | Regularization technique that prevents overfitting |
-| Data Augmentation | Creating variations of training images to improve generalization |
-| Checkpointing | Saving the best model state during training |
-| ONNX | Portable format for model deployment across platforms |
+| **Hyperparameter tuning** | Learning rate, inner layer size, and dropout rate are systematically tested |
+| **Dropout regularization** | Randomly disables neurons during training to prevent overfitting |
+| **Data augmentation** | Random rotations, crops, and flips applied to training images only, to improve generalization |
+| **Model checkpointing** | Best model state is saved automatically whenever validation accuracy improves |
+| **ONNX export** | Trained model is exported to a portable format ready for deployment |
 
 ---
 
-## PyTorch vs TensorFlow/Keras - Quick Reference
+## PyTorch vs TensorFlow/Keras
 
 | Concept | TensorFlow / Keras | PyTorch |
 |---|---|---|
 | Data loading | `ImageDataGenerator` | `Dataset` + `DataLoader` |
 | Training | `model.fit()` | Manual training loop |
-| Layers | `keras.layers.Dense()` | `nn.Linear()` |
+| Dense layer | `keras.layers.Dense()` | `nn.Linear()` |
 | Loss | `CategoricalCrossentropy` | `CrossEntropyLoss` |
 | Optimizer | `keras.optimizers.Adam` | `optim.Adam` |
-| Saving | `.h5` / `.keras` | `.pth` / `.pt` |
-| Device | Automatic | Explicit `.to(device)` |
+| Model saving | `.h5` / `.keras` | `.pth` / `.pt` |
+| Device management | Automatic | Explicit `.to(device)` |
 
 ---
 
 ## Environment
 
-- **Platform:** Google Colab (GPU available via `torch.cuda.is_available()`)
-- **Main libraries:** PyTorch, torchvision, Pillow (PIL), NumPy
+- **Platform:** Google Colab (GPU-enabled)
+- **Main libraries:** PyTorch, torchvision, Pillow, NumPy
 
 ---
 
 ## References
 
-- [ML Zoomcamp - Module 08 Deep Learning](https://github.com/DataTalksClub/machine-learning-zoomcamp/blob/master/08-deep-learning)
+- [ML Zoomcamp — Module 08 Deep Learning](https://github.com/DataTalksClub/machine-learning-zoomcamp/blob/master/08-deep-learning)
+- [Clothing Dataset (full)](https://github.com/alexeygrigorev/clothing-dataset)
+- [Clothing Dataset Small](https://github.com/alexeygrigorev/clothing-dataset-small)
 - [PyTorch Documentation](https://pytorch.org/docs/)
-- [torchvision Models](https://pytorch.org/vision/stable/models.html)
 - [ONNX Documentation](https://onnx.ai/)
-- Original workshop by [Alexey Grigorev](https://github.com/alexeygrigorev), PyTorch adaptation from the ML Zoomcamp Deep Learning module
+- Original curriculum by [Alexey Grigorev](https://github.com/alexeygrigorev) — PyTorch adaptation based on ML Zoomcamp Module 08
