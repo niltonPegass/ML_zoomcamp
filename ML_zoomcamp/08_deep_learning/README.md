@@ -1,12 +1,12 @@
-# Deep Learning with PyTorch — Clothing Image Classification
+# Deep Learning with PyTorch - Clothing Image Classification
 
-This project applies **deep learning** to image classification using **PyTorch** and **transfer learning**. It is part of the ML Zoomcamp curriculum (Module 08 — Deep Learning), adapted from the original TensorFlow/Keras version to use PyTorch.
+This project applies **deep learning** to image classification using **PyTorch** and **transfer learning**. It is part of the ML Zoomcamp curriculum (Module 08 - Deep Learning), adapted from the original TensorFlow/Keras version to use PyTorch.
 
 ---
 
 ## Why Deep Learning?
 
-Deep learning is a subfield of machine learning built on neural networks with multiple layers. Unlike previous chapters that dealt with tabular data, here we work directly with **images** — a domain where deep learning particularly excels.
+Deep learning is a subfield of machine learning built on neural networks with multiple layers. Unlike previous chapters that dealt with tabular data, here we work directly with **images** - a domain where deep learning particularly excels.
 
 Instead of structured rows and columns, the input is now a grid of pixels. Deep neural networks learn to extract visual patterns (edges, textures, shapes) automatically across their layers, making them the standard approach for image classification tasks.
 
@@ -14,7 +14,7 @@ Instead of structured rows and columns, the input is now a grid of pixels. Deep 
 
 ## Use Case
 
-Imagine a fashion marketplace where a user wants to list a clothing item for sale. They upload a photo, and a **classification service** analyzes the image and suggests the appropriate category automatically — for example, identifying the item as a *t-shirt* or a *dress*.
+Imagine a fashion marketplace where a user wants to list a clothing item for sale. They upload a photo, and a **classification service** analyzes the image and suggests the appropriate category automatically - for example, identifying the item as a *t-shirt* or a *dress*.
 
 That service is exactly what we build here: a neural network that receives a clothing image and returns a predicted category label.
 
@@ -34,7 +34,7 @@ This is a **multi-class classification** task:
 
 ## Dataset
 
-We use the [clothing-dataset-small](https://github.com/alexeygrigorev/clothing-dataset-small) — a curated subset of the [full clothing dataset](https://github.com/alexeygrigorev/clothing-dataset) (~5,000 images, 20 classes), keeping only the **10 most popular categories**.
+We use the [clothing-dataset-small](https://github.com/alexeygrigorev/clothing-dataset-small) - a curated subset of the [full clothing dataset](https://github.com/alexeygrigorev/clothing-dataset) (~5,000 images, 20 classes), keeping only the **10 most popular categories**.
 
 | Property | Details |
 |---|---|
@@ -48,7 +48,7 @@ We use the [clothing-dataset-small](https://github.com/alexeygrigorev/clothing-d
 
 ### Transfer Learning with MobileNetV2
 
-Rather than training from scratch, we use **MobileNetV2** — a model pre-trained on ImageNet (1.4M images, 1000 classes). Its convolutional layers are **frozen**, reusing already-learned visual features, while a custom classification head is trained for our 10-class problem.
+Rather than training from scratch, we use **MobileNetV2** - a model pre-trained on ImageNet (1.4M images, 1000 classes). Its convolutional layers are **frozen**, reusing already-learned visual features, while a custom classification head is trained for our 10-class problem.
 
 **Model architecture:**
 
@@ -62,7 +62,7 @@ Rather than training from scratch, we use **MobileNetV2** — a model pre-traine
 
 ### Training
 
-PyTorch requires an **explicit training loop** — forward pass, loss computation (`CrossEntropyLoss`), backward pass, and weight update (`Adam optimizer`) — unlike Keras's `model.fit()`. This gives more control and visibility into what happens during training.
+PyTorch requires an **explicit training loop** - forward pass, loss computation (`CrossEntropyLoss`), backward pass, and weight update (`Adam optimizer`) - unlike Keras's `model.fit()`. This gives more control and visibility into what happens during training.
 
 ### Key Techniques Applied
 
@@ -99,9 +99,9 @@ PyTorch requires an **explicit training loop** — forward pass, loss computatio
 
 ## References
 
-- [ML Zoomcamp — Module 08 Deep Learning](https://github.com/DataTalksClub/machine-learning-zoomcamp/blob/master/08-deep-learning)
+- [ML Zoomcamp - Module 08 Deep Learning](https://github.com/DataTalksClub/machine-learning-zoomcamp/blob/master/08-deep-learning)
 - [Clothing Dataset (full)](https://github.com/alexeygrigorev/clothing-dataset)
 - [Clothing Dataset Small](https://github.com/alexeygrigorev/clothing-dataset-small)
 - [PyTorch Documentation](https://pytorch.org/docs/)
 - [ONNX Documentation](https://onnx.ai/)
-- Original curriculum by [Alexey Grigorev](https://github.com/alexeygrigorev) — PyTorch adaptation based on ML Zoomcamp Module 08
+- Original curriculum by [Alexey Grigorev](https://github.com/alexeygrigorev) - PyTorch adaptation based on ML Zoomcamp Module 08
